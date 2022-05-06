@@ -1,0 +1,384 @@
+.chat-bar-collapsible {
+    position: fixed;
+    bottom: 0;
+    right: 50px;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.collapsible {
+    background-color: #165a72;
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    width: 350px;
+    text-align: left;
+    outline: none;
+    font-size: 18px;
+    border-radius: 10px 10px 0px 0px;
+    border: 3px solid white;
+    border-bottom: none;
+}
+
+.content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    background-color: #f1f1f1;
+}
+
+.full-chat-block {
+    width: 350px;
+    background: white;
+    text-align: center;
+    overflow: auto;
+    scrollbar-width: none;
+    height: max-content;
+    transition: max-height 0.2s ease-out;
+}
+
+.outer-container {
+    min-height: 500px;
+    bottom: 0%;
+    position: relative;
+}
+
+.chat-container {
+    max-height: 500px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    scroll-behavior: smooth;
+    hyphens: auto;
+}
+
+.chat-container::-webkit-scrollbar {
+    display: none;
+}
+
+.chat-bar-input-block {
+    display: flex;
+    float: left;
+    box-sizing: border-box;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    background-color: rgb(235, 235, 235);
+    border-radius: 10px 10px 0px 0px;
+    padding: 10px 0px 10px 10px;
+}
+
+.chat-bar-icons {
+    display: flex;
+    justify-content: space-evenly;
+    box-sizing: border-box;
+    width: 25%;
+    float: right;
+    font-size: 20px;
+}
+
+#chat-icon:hover {
+    opacity: .7;
+}
+
+#chat-icon1:hover {
+    opacity: .7;
+}
+
+/* Chat bubbles */
+
+#userInput {
+    width: 75%;
+}
+
+.input-box {
+    float: left;
+    border: none;
+    box-sizing: border-box;
+    width: 100%;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 16px;
+    color: #000;
+    background-color: white;
+    outline: none
+}
+
+.userText {
+    color: white;
+    font-family: Helvetica;
+    font-size: 16px;
+    font-weight: normal;
+    text-align: right;
+    clear: both;
+}
+
+.userText span {
+    line-height: 1.5em;
+    display: inline-block;
+    background: #5ca6fa;
+    padding: 10px;
+    border-radius: 8px;
+    border-bottom-right-radius: 2px;
+    max-width: 80%;
+    margin-right: 10px;
+    animation: floatup .5s forwards
+}
+
+.botText {
+    color: #000;
+    font-family: Helvetica;
+    font-weight: normal;
+    font-size: 16px;
+    text-align: left;
+}
+
+.botText span {
+    line-height: 1.5em;
+    display: inline-block;
+    background: #e0e0e0;
+    padding: 10px;
+    border-radius: 8px;
+    border-bottom-left-radius: 2px;
+    max-width: 80%;
+    margin-left: 10px;
+    animation: floatup .5s forwards
+}
+
+@keyframes floatup {
+    from {
+        transform: translateY(14px);
+        opacity: .0;
+    }
+    to {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+@media screen and (max-width:600px) {
+    .full-chat-block {
+        width: 100%;
+        border-radius: 0px;
+    }
+    .chat-bar-collapsible {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+    }
+    .collapsible {
+        width: 100%;
+        border: 0px;
+        border-top: 3px solid white;
+        border-radius: 0px;
+    }
+}
+/*
+[type="radio"]:checked,
+[type="radio"]:not(:checked) {
+    position: absolute;
+    left: -9999px;
+}
+[type="radio"]:checked + label,
+[type="radio"]:not(:checked) + label
+{
+    position: relative;
+    padding-left: 28px;
+    cursor: pointer;
+    line-height: 20px;
+    display: inline-block;
+    color: #666;
+}
+[type="radio"]:checked + label:before,
+[type="radio"]:not(:checked) + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #ddd;
+    border-radius: 100%;
+    background: #fff;
+}
+[type="radio"]:checked + label:after,
+[type="radio"]:not(:checked) + label:after {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background: #F87DA9;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    border-radius: 100%;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+[type="radio"]:not(:checked) + label:after {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+}
+[type="radio"]:checked + label:after {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+*/
+.Button {
+background: transparent;
+text-align: center;
+border: 0;
+border-radius: 0;
+color: inherit;
+display: inline-block;
+font: inherit;
+height: auto;
+width: 280px;
+line-height: 1;
+margin-bottom: 10;
+padding: 0;
+position: relative;
+text-decoration: none;
+user-select: none;
+}
+
+/**
+ * Override default focus styles so we can apply our own.
+ * Never do this unless you will replace them!!
+ */
+
+.Button:focus {
+  outline: none;
+}
+
+.Button::-moz-focus-inner {
+  border: 0;
+}
+
+.Button-inner {
+  align-items: center;
+  text-align: center;
+  background: #2596be;
+  border: 2px solid transparent;
+  border-radius: 99em;
+  color: #fff;
+  display: flex;
+  font-weight: 600;
+  height: 2.5em;
+  min-width: 2.5em;
+  padding: 0 1em;
+  margin-bottom: 10px;
+  position: relative;
+  transition: 0.2s ease;
+  width: 100%;
+}
+
+.Button:focus .Button-inner {
+  border-color: #fff;
+  box-shadow: 0 0 0 2px #456BD9;
+}
+
+.Button:hover .Button-inner {
+  filter: brightness(1.1);
+}
+
+.Button:active .Button-inner {
+  filter: brightness(0.9);
+}
+
+/**
+ * Demo styles
+ */
+
+* {
+  box-sizing: border-box;
+  margin: 10;
+
+}
+.inp {
+  border-radius: 25px;
+  border: 2px solid #2596be;
+  padding: 20px;
+  width: 300px;
+  height: 15px;
+}
+
+.bn3 {
+display: inline-block;
+padding: 0.5em 1.7em;
+margin: 0 0.1em 0.1em 0;
+border: 0.16em solid rgba(35,156,199,255);
+border-radius: 2em;
+box-sizing: border-box;
+text-decoration: none;
+font-family: "Roboto", sans-serif;
+font-weight: 300;
+color: #239cc7;
+text-shadow: 0 0.04em 0.04em rgba(35,156,199,255, 0.253);
+text-align: center;
+transition: all 0.2s;
+}
+
+.bn3:hover {
+color: white;
+background-color: rgba(35,156,199,255);
+}
+
+.bn3[type="radio"]:checked + label:after,
+.bn3[type="radio"]:not(:checked) + label:after {
+  color: white;
+  background-color: rgba(35,156,199,255);
+}
+
+.radio span {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.radio input:checked+span {
+    border-color: rgba(35,156,199,255);
+}
+
+.radio span, .radio span::after {
+    transition: all .2s cubic-bezier(.68,-.55,.265,1.55);
+}
+
+.radio span {
+    border: 2px solid var(--border-color);
+    border-radius: var(--border-radius);
+}
+
+.radio span {
+    border-radius: 50%;
+}
+
+@keyframes pulse {
+
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.5);
+  }
+}
+
+#chat-icon::after {
+  background : lightblue;
+  animation: pulse 1000ms;
+  z-index: 1;
+
+}
+
+#chat-icon1::after {
+  background : lightblue;
+  animation: pulse 1000ms;
+  z-index: 1;
+
+}
