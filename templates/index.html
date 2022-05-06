@@ -1,0 +1,921 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Bot</title>
+
+    <link rel="stylesheet" href="{% static 'css/chat.css' %}">
+    <!--<link rel="stylesheet" href="{% static 'css/home.css' %}">-->
+    <link rel="stylesheet" href="{% static 'css/pdf.css' %}">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+
+    <title>Daktarz Bot | A.I. Disease Diagnoser</title>
+
+    <!-- ===============================================-->
+    <!--    Favicons-->
+    <!-- ===============================================-->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'assets/img/favicons/daktarz.jpg' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'assets/img/favicons/daktarz.jpg' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'assets/img/favicons/daktarz.jpg' %}">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'assets/img/favicons/daktarz.jpg' %}">
+    <link rel="manifest" href="{% static 'assets/img/favicons/manifest.json' %}">
+    <meta name="msapplication-TileImage" content="{% static 'assets/img/favicons/mstile-150x150.png' %}">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- ===============================================-->
+    <!--    Stylesheets-->
+    <!-- ===============================================-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;500;600;700&amp;family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,300&amp;display=swap" rel="stylesheet">
+    <link href="{% static 'assets/css/theme.min.css' %}" rel="stylesheet" type="text/css"/>
+    <link href="{% static 'assets/css/user.min.css' %}" rel="stylesheet" type="text/css"/>
+</head>
+
+<body>
+    <!-- CHAT BAR BLOCK -->
+    <!-- ===============================================-->
+    <!--    Main Content-->
+    <!-- ===============================================-->
+    <main class="main" id="top">
+      <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" data-navbar-on-scroll="light">
+        <div class="container"><a class="navbar-brand" href=""><img src="{% static 'assets/img/icons/daktarz_logo.png' %}" height="35" alt="logo" /></a><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+          <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto pt-2 pt-lg-0 font-base align-items-center">
+              
+            </ul><button class="btn btn-primary" onclick="document.getElementById('chat-button').click()">Get Started!</button>
+          </div>
+        </div>
+      </nav>
+      <section class="py-7 py-lg-10" id="home">
+        <div class="bg-holder bg-size" style="background-image:url({% static 'assets/img/illustration/2.png' %});background-position:left top;background-size:contain;"></div>
+        <!--/.bg-holder-->
+        <div class="bg-holder d-none d-xxl-block hero-bg" style="background-image:url({% static 'assets/img/illustration/1.png' %});background-position:right top;background-size:contain;"></div>
+        <!--/.bg-holder-->
+        <div class="container">
+          <div class="row align-items-center h-100 justify-content-center justify-content-lg-start">
+            <div class="col-md-9 col-xxl-5 text-md-start text-center py-6 pt-8">
+              <h1 class="fs-4 fs-md-5 fs-xxl-4" data-zanim-xs='{"delay":0.3}' data-zanim-trigger="scroll">Know your symptoms? talk to DaktarZ</h1>
+              <p class="fs-1" data-zanim-xs='{"delay":0.5}' data-zanim-trigger="scroll">Why make guesses about your health ? when you have SmartBot to tell your diagnosis Just talk to DaktarZ. Chat with our own A.I powered Chatbot. Just follow the steps on clicking Chat with us! below </p>
+              <div class="d-flex flex-column flex-sm-row justify-content-center justify-content-md-start mt-5" data-zanim-xs='{"delay":0.5}' data-zanim-trigger="scroll"><a class="btn btn-sm btn-primary me-1" role="button" onclick="document.getElementById('chat-button').click()">Get started</a><a class="btn btn-sm btn-default" href="#" role="button">Questions? Talk to our team<i class="fas fa-arrow-right ms-2"></i></a></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <section id="product">
+        <div class="container">
+          <div class="row mb-4">
+            <div class="col-md-6 h-100 text-center text-md-start p-0 p-md-5 pb-3">
+              <h2 class="mt-3">Improve the stability of your application</h2>
+              <p class="mb-0">Bugsnag monitors application stability, so you can make data-driven decisions on whether you should be building new features, or fixing bugs.</p>
+            </div>
+            <div class="col-md-6">
+              <div class="w-100 h-100 p-5 services-card-shadow rounded-4"><img src="{% static 'assets/img/icons/free.png' %}" alt="Dashboard" style="width:95px;" />
+                <h3 class="mt-3 lh-base">Our Chatbot is &quot;totally free of cost!</h3>
+                <p class="mb-0">Support our site by using our other healthcare services like ambulance booking, Making an appointment with doctors, etc.,</p>
+              </div>
+            </div>
+          </div>
+          <div class="row mb-4">
+            <div class="col-md-6">
+              <div class="w-100 h-100 p-5 services-card-shadow rounded-4"><img src="{% static 'assets/img/icons/reliable.png' %}" alt="Comment" style="width:95px;" />
+                <h3 class="mt-3 lh-base">Reliable!</h3>
+                <p class="mb-0">You can rely on our site with the use of strong Automation we have given you the use of full on A.I. Diagnoser</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="w-100 h-100 p-5 services-card-shadow rounded-4"><img src="{% static 'assets/img/icons/easy.png' %}" alt="Tailored" style="width:95px;" />
+                <h3 class="mt-3 lh-base">Easy to use! </h3>
+                <p class="mb-0">Use our chatbot with very simple steps and designed just for you with easy to use User Experience our chatbot will not make more extra pain in your pain as you are suffering from symptoms...</p>
+              </div>
+            </div>
+          </div>
+        </div><!-- end of .container-->
+      </section><!-- <section> close ============================-->
+      <!-- ============================================-->
+
+
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <section id="customers">
+        <div class="container">
+          <h1 class="text-center display-5 fw-semi-bold" data-zanim-xs='{"delay":0.3}' data-zanim-trigger="scroll"> Main features of our chatbot and Daktarz Healthcare platform</h1>
+          <p class="text-center fs-0 fs-md-1" data-zanim-xs='{"delay":0.5}' data-zanim-trigger="scroll"> Prediction of a disease has became easier with Daktarz Bot!<br class="d-none d-lg-block" />you have the tools to tell your our diagnosis.</p>
+          <div class="row mb-4 mt-6">
+            <div class="col-md-6 col-lg-3 text-center"><img src="{% static 'assets/img/icons/4.png' %}" alt="Dashboard" style="width:95px;" />
+              <h4 class="mt-3 lh-base">Growing database</h4>
+              <p class="fs-0">We frequently update our database !</p>
+            </div>
+            <div class="col-md-6 col-lg-3 text-center"><img src="{% static 'assets/img/icons/5.png' %}" alt="Comment" style="width:95px;" />
+              <h4 class="mt-3 lh-base">Save your money with offers</h4>
+              <p class="fs-0">We provide offers on our main platform of Daktarz</p>
+            </div>
+            <div class="col-md-6 col-lg-3 text-center"><img src="{% static 'assets/img/icons/6.png' %}" alt="Tailored" style="width:95px;" />
+              <h4 class="mt-3 lh-base">Increase Trust</h4>
+              <p class="fs-0">We're trying to build trust in people everyday</p>
+            </div>
+            <div class="col-md-6 col-lg-3 text-center"><img src="{% static 'assets/img/icons/7.png' %}" alt="Dashboard" style="width:95px;" />
+              <h4 class="mt-3 lh-base">Social Influence</h4>
+              <p class="fs-0">We're available on every social media page just search or click on any social media icon above</p>
+            </div>
+          </div>
+          <div class="row mb-6">
+            <div class="col-md-6 col-lg-3 text-center"><img src="{% static 'assets/img/icons/8.png' %}" alt="Dashboard" style="width:95px;" />
+              <h4 class="mt-3 lh-base">Smart diagnoser with your own labtests </h4>
+              <p class="fs-0">Display ups and downs in your test results so it will be easier for you and your doctor</p>
+            </div>
+            <div class="col-md-6 col-lg-3 text-center"><img src="{% static 'assets/img/icons/9.png' %}" alt="Dashboard" style="width:95px;" />
+              <h4 class="mt-3 lh-base">Use anywhere</h4>
+              <p class="fs-0">Our platform is available globally</p>
+            </div>
+            <div class="col-md-6 col-lg-3 text-center"><img src="{% static 'assets/img/icons/10.png' %}" alt="Dashboard" style="width:95px;" />
+              <h4 class="mt-3 lh-base">Use Anytime</h4>
+              <p class="fs-0">available 24/7. Although as we're in beta state so try after some time...</p>
+            </div>
+            <div class="col-md-6 col-lg-3 text-center"><img src="{% static 'assets/img/icons/11.png' %}" alt="Dashboard" style="width:95px;" />
+              <h4 class="mt-3 lh-base">Fast calculation of results</h4>
+              <p class="fs-0">our chatbot calculate results in very fast speed</p>
+            </div>
+          </div>
+          <div class="row mb-6">
+            <div class="col-md-6 col-lg-3 text-center"><img src="{% static 'assets/img/icons/12.png' %}" alt="Dashboard" style="width:95px;" />
+              <h4 class="mt-3 lh-base">Safety</h4>
+              <p class="fs-0">Your data is safe with us!</p>
+            </div>
+            <div class="col-md-6 col-lg-3 text-center"><img src="{% static 'assets/img/icons/13.png' %}" alt="Dashboard" style="width:95px;" />
+              <h4 class="mt-3 lh-base">Influence</h4>
+              <p class="fs-0">Help grow our network by sharing more..</p>
+            </div>
+            <div class="col-md-6 col-lg-3 text-center"><img src="{% static 'assets/img/icons/14.png' %}" alt="Dashboard" style="width:95px;" />
+              <h4 class="mt-3 lh-base">Mobile Optimized</h4>
+              <p class="fs-0">Fetch site also on mobile also</p>
+            </div>
+            <div class="col-md-6 col-lg-3 text-center"><img src="{% static 'assets/img/icons/15.png' %}" alt="Dashboard" style="width:95px;" />
+              <h4 class="mt-3 lh-base">Simple English</h4>
+              <p class="fs-0">Simple English so that everyone will understand</p>
+            </div>
+          </div>
+        </div><!-- end of .container-->
+      </section><!-- <section> close ============================-->
+      <!-- ============================================-->
+
+
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <section id="pricing">
+        <div class="container">
+          <div class="row flex-center">
+            <div class="col-md-6 text-center text-md-start">
+              <h4 class="fw-normal fs-3" data-zanim-xs='{"delay":0.3}' data-zanim-trigger="scroll">Access anywhere <br />on this planet</h4>
+              <p class="fs-0 pe-xl-8" data-zanim-xs='{"delay":0.5}' data-zanim-trigger="scroll">Open on any device you want, anywhere you want. </p>
+              <div class="d-flex justify-content-space-between align-item-center my-3 mt-2">
+                <div>
+                  <h4 class="fw-normal fs-1">Access</h4>
+                  <p class="my-1 fs-0 pe-xl-8">High accessibility</p>
+                </div>
+                <div>
+                  <h4 class="fw-normal fs-1">Privacy</h4>
+                  <p class="my-1 fs-0 pe-xl-8">We respect your privacy</p>
+                </div>
+              </div><button class="btn btn-sm btn-primary my-4 me-1" onclick="document.getElementById('chat-button').click()" role="button">Get started</button><a class="btn btn-sm my-2 btn-default" href="#" role="button">Questions? Talk to our team<i class="fas fa-arrow-right ms-2"></i></a>
+            </div>
+            <div class="col-md-6 mb-4"><img class="w-100" src="{% static 'assets/img/illustration/4.png' %}" alt="..." /></div>
+          </div>
+        </div><!-- end of .container-->
+      </section><!-- <section> close ============================-->
+      <!-- ============================================-->
+
+
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <section>
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-md-6 mb-4"><img class="w-100" src="{% static 'assets/img/illustration/5.png' %}" alt="..." /></div>
+            <div class="col-md-6 text-center text-md-start">
+              <h4 class="fs-3 fw-normal" data-zanim-xs='{"delay":0.3}' data-zanim-trigger="scroll">Why run for doctor <br />for simple Diagnosis</h4>
+              <p class="fs-0 pe-xl-7" data-zanim-xs='{"delay":0.5}' data-zanim-trigger="scroll">When you have the ability of predicting your's or other's diagnostic result then why run for doctor ?</p>
+              <div class="d-flex justify-content-center align-item-center my-3 mt-2">
+                
+              </div><button class="btn btn-sm btn-primary btn-bg-purple my-4 me-1" onclick="document.getElementById('chat-button').click()" role="button">Get started</button><a class="btn btn-sm my-2 btn-default" href="#" role="button">Questions? Talk to our team<i class="fas fa-arrow-right ms-2"></i></a>
+            </div>
+          </div>
+        </div><!-- end of .container-->
+      </section><!-- <section> close ============================-->
+      <!-- ============================================-->
+
+      
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <section class="bg-200" id="cta">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-lg-6">
+              <h2 class="fw-bold text-black">Contact Us</h2>
+              <p>Have any query ? give your email here we will respond you</p>
+            </div>
+            <div class="col-lg-6 h-100">
+              <div class="input-group"> <input class="form-control" type="text" placeholder="Email Address" /><button class="btn btn-primary rounded-start-0 px-3" type="submit" href="#Contact Us">Get Started</button></div>
+            </div>
+          </div>
+        </div><!-- end of .container-->
+      </section><!-- <section> close ============================-->
+      <!-- ============================================-->
+
+      <section class="py-0 bg-1000">
+        <div class="container">
+          <div class="row py-7">
+            <div class="col-12 col-sm-12 col-lg-6 mb-4 order-0 order-sm-0"><a class="text-decoration-none" href="#"><img src="{% static 'assets/img/icons/daktarz.jpg' %}" height="51" alt="" /></a>
+              <p class="text-light mt-4 mb-0">+91-9915520552</p>
+              <p class="text-light mt-1 mb-0">support@daktarz.com</p>
+              <p class="text-light mt-1 mb-2 mb-0">office location:chandigarh</p>
+              <!--<p class="text-light mt-5">info@gohub.ee</p>-->
+              <div class="d-flex"><a href="https://www.linkedin.com/company/daktarz/"><img class="me-xl-3 me-1" src="{% static 'assets/img/gallery/linkedin-line1.svg' %}" alt="in" width:'20px'="width:'20px'" height:'20px'="height:'20px'" /></a><a href="https://www.facebook.com/DaktarZ/"><img class="me-xl-3 me-1" src="{% static 'assets/img/gallery/facebook-line1.svg' %}" alt="fb" width:'20px'="width:'20px'" height:'20px'="height:'20px'" /></a><a href="https://twitter.com/daktarzapp"><img class="me-xl-3 me-1" src="{% static 'assets/img/gallery/twitter-line1.svg' %}" alt="twitter" width:'20px'="width:'20px'" height:'20px'="height:'20px'" /></a><a href="https://www.instagram.com/daktarz/"><img class="me-xl-3 me-1" src="{% static 'assets/img/gallery/instagram-line1.svg' %}" alt="instragram" width:'20px'="width:'20px'" height:'20px'="height:'20px'" /></a></div>
+            </div>
+            <div class="col-3 col-sm-4 col-lg-2 mb-3 order-2 order-sm-1">
+              
+            </div>
+            <div class="col-6 col-sm-4 col-lg-2 mb-3 order-3 order-sm-2">
+              <h5 class="lh-lg fw-bold text-light font-sans-serif">Offerings</h5>
+              <ul class="list-unstyled text-light mb-md-4 mb-lg-0">
+                <li class="lh-lg"><a class="text-500 footer-link text-light" href="https://www.daktarz.com/">Healthcare</a></li>
+                <li class="lh-lg"><a class="text-500 footer-link text-light" href="https://www.daktarz.com/">Ambulance Booking</a></li>
+                <li class="lh-lg"><a class="text-500 footer-link text-light" href="https://www.daktarz.com/pharmacy/list">Medicine service</a></li>
+                <li class="lh-lg"><a class="text-500 footer-link text-light" href="https://www.daktarz.com/doctors/list">Consult with doctor</a></li>
+                <li class="lh-lg"><a class="text-500 footer-link text-light" href="https://www.daktarz.com/articles">Articles</a></li>
+              </ul>
+            </div>
+            <div class="col-6 col-sm-4 col-lg-2 mb-3 order-3 order-sm-2">
+              <h5 class="lh-lg fw-bold text-light font-sans-serif"> Support</h5>
+              <ul class="list-unstyled text-light mb-md-4 mb-lg-0">
+                <li class="lh-lg"><a class="text-500 footer-link text-light" href="https://www.daktarz.com/page/TERMS_CONDITIONS">Terminal Conditions</a></li>
+                <li class="lh-lg"><a class="text-500 footer-link text-light" href="https://www.daktarz.com/page/PRIVACY_POLICY">Privacy policy</a></li>
+                <li class="lh-lg"><a class="text-500 footer-link text-light" href="https://www.daktarz.com/page/CONTACT_US">Contact US</a></li>
+                <li class="lh-lg"><a class="text-500 footer-link text-light" href="https://www.daktarz.com/page/faq">FAQ</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- ============================================-->
+        <!-- <section> begin ============================-->
+        <section class="py-0 bg-1000">
+          <div class="container">
+            <div class="row justify-content-md-between justify-content-evenly py-3">
+              <div class="col-12 col-sm-8 col-md-6 col-lg-auto text-center text-md-start">
+                <p class="fs--1 my-2 fw-bold text-200">&copy; 2022 Daktarz Inc</p>
+              </div>
+              <div class="col-12 col-sm-8 col-md-6">
+                <p class="fs--1 my-2 text-center text-md-end text-200"> Product of DaktarZ</p>
+              </div>
+            </div>
+          </div><!-- end of .container-->
+        </section><!-- <section> close ============================-->
+        <!-- ============================================-->
+
+      </section>
+    </main><!-- ===============================================-->
+    <!--    End of Main Content-->
+    <!-- ===============================================-->
+
+
+
+    <!-- ===============================================-->
+    <!--    JavaScripts-->
+    <!-- ===============================================-->
+    
+    <div class="chat-bar-collapsible">
+        <button id="chat-button" type="button" class="collapsible">Chat with us!
+            <i id="chat-icon" style="color: #fff;" class="fa fa-comments"></i>
+        </button>
+
+        <div class="content">
+            <div class="full-chat-block">
+                <!-- Message Container -->
+                <div class="outer-container">
+
+                    <div id="div1" style="display:block">
+                      <div class="chat-container">
+                        <form action="#" method="post">
+                            {% csrf_token %}
+                          <p>
+                                <h3 style="text-align:left; margin-left:15px;" > Fill your details </h3>
+                                <input type="text" id="ip1" class="inp" placeholder="Name" required/>
+                          </p>
+                          <p>
+                                <!--<div class="container">
+                                <form id="login" onsubmit="process(event)">
+                                  <p>Enter your phone number:</p>
+                                  <input id="phone" type="tel" name="phone" />
+                                  <input type="submit" class="btn" value="Verify" />
+                                </form>
+                                <div class="alert alert-info" style="display: none;"></div>
+                              </div>-->
+                                <input type="number" id="ip2" class="inp" placeholder="Phone Number " required/>
+                          </p>
+                          <p>
+                            <input type="number" id="ip3" class="inp" placeholder="Age " required/>
+                          </p>
+                          <p>
+                            <h4 style="text-align:left; margin-left:15px;" > Gender </h4>
+                          </p>
+                          <p>
+
+                            <label class="radio" for="test1">
+                            <input type="radio" name="gender" id="test1" value="male"  checked>
+                            <span>
+
+                            </span>
+                            Male
+                            </label>
+
+                            <label class="radio" for="test2">
+                            <input type="radio" name="gender" value="female" id="test2" >
+                            <span>
+
+                            </span>
+                            Female
+                            </label>
+
+                            <label class="radio" for="test3">
+                            <input type="radio" name="gender" value="other" id="test3" >
+                            <span>
+
+                            </span>
+                            Other
+                            </label>
+                          </p>
+                          <br>
+                          <div class="chat-bar-input-block">
+                          <button class="Button" type="button"  onclick="replacemiddle()">
+                            <span class="Button-inner" >
+                            Submit
+                            </span>
+                          </button>
+                          </div>
+                          <!--<button type="submit" onclick = "replace()">change content</button>-->
+                          </form>
+                      </div>
+                    </div>
+                    <div id="divmiddle" style="display:none">
+                      <div class="chat-container">
+                            <button class="Button" type="button"  onclick="replacediv2()">
+                              <span class="Button-inner" >
+                              Chat with our A.I Diagnoser
+                              </span>
+                              <br>
+                            </button>
+                            <button class="Button" type="button"  onclick="replacediv3()">
+                              <span class="Button-inner" >
+                              Upload you labtest report
+                              </span>
+                            </button>
+                      </div>
+                    </div>
+                    <div id="div3" style="display:none">
+                      <div class="chat-container">
+                        <form action="/upload" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                          <p>
+                                <div class="drop-zone">
+                                  <span class="drop-zone__prompt">Drop file here or click to upload</span>
+                                  <input type="file" name="myFile" id="myFile" class="drop-zone__input">
+                                </div>
+
+                          </p>
+                          <div class="chat-bar-input-block">
+                            <button class="Button" type="submit" >
+                              <span class="Button-inner" >
+                              Submit
+                              </span>
+                            </button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                    <div id="div2" style="display:none">
+                      <div class="chat-container">
+                          <!-- Messages -->
+                          <div id="chatbox">
+                              <h5 id="chat-timestamp"></h5>
+                              <p id="botStarterMessage" class="botText"><span>Loading...</span></p>
+                          </div>
+
+                          <!-- User input box -->
+                          <div id="inputdiv1">
+                          <div class="chat-bar-input-block">
+
+                            <div id="userInput">
+                                <input id="textInput" class="input-box" type="text" name="msg" placeholder="Tap 'Enter' to send a message">
+                                <p></p>
+                            </div>
+
+                            <div class="chat-bar-icons">
+
+                                <i id="chat-icon1" style="color: crimson;" class="fa fa-fw fa-microphone" onclick="VoiceAPI()"></i>
+                                <i id="chat-icon" style="color: #333;" class="fa fa-paper-plane" onclick="sendButtonreplacable()"></i>
+                            </div>
+                            </div>
+                          </div>
+
+
+
+                            <div id="inputdiv2" style="display:none">
+                              <div class="chat-bar-input-block">
+                                <div id="userInput">
+                                    <button class="Button" type="submit" onclick="sendButton()">
+                                        <span class="Button-inner">
+                                            Submit
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
+                          </div>
+
+                          <div id="inputdiv3" style="display:none">
+                            <div class="chat-bar-input-block">
+                              <div id="userInput">
+                                  <button class="Button" type="submit" onclick="sendButton2()">
+                                      <span class="Button-inner">
+                                          Submit
+                                      </span>
+                                  </button>
+                              </div>
+                          </div>
+                        </div>
+
+                        <div id="inputdiv8" style="display:none">
+                          <div class="chat-bar-input-block">
+                            <div id="userInput">
+                                <button class="Button" type="submit" onclick="sendButton3()">
+                                    <span class="Button-inner">
+                                        Submit
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                      </div>
+
+                      <div id="inputdiv9" style="display:none">
+                        <div class="chat-bar-input-block">
+                          <div id="userInput">
+                              <button class="Button" type="submit" onclick="sendButton4()">
+                                  <span class="Button-inner">
+                                      Submit
+                                  </span>
+                              </button>
+                          </div>
+                      </div>
+                    </div>
+
+                        <div id="inputdiv4" style="display:none">
+                        <div class="chat-bar-input-block">
+
+                          <div id="userInput">
+                              <input id="textInput2" class="input-box" type="text" name="msg" placeholder="Tap 'Enter' to send a message">
+                              <p></p>
+                          </div>
+
+                          <div class="chat-bar-icons">
+
+                              <i id="chat-icon1" style="color: crimson;" class="fa fa-fw fa-microphone" onclick="VoiceAPI2()"></i>
+                              <i id="chat-icon" style="color: #333;" class="fa fa-paper-plane" onclick="sendButtonreplacable2()"></i>
+                          </div>
+                          </div>
+                        </div>
+
+                        <div id="inputdiv5" style="display:none">
+                        <div class="chat-bar-input-block">
+
+                          <div id="userInput">
+                              <input id="textInput3" class="input-box" type="text" name="msg" placeholder="Tap 'Enter' to send a message">
+                              <p></p>
+                          </div>
+
+                          <div class="chat-bar-icons">
+
+                              <i id="chat-icon1" style="color: crimson;" class="fa fa-fw fa-microphone" onclick="VoiceAPI3()"></i>
+                              <i id="chat-icon" style="color: #333;" class="fa fa-paper-plane" onclick="sendButtonreplacable3()"></i>
+                          </div>
+                          </div>
+                        </div>
+
+                        <div id="inputdiv50" style="display:none">
+                        <div class="chat-bar-input-block">
+
+                          <div id="userInput">
+                              <input id="textInput30" class="input-box" type="text" name="msg" placeholder="Tap 'Enter' to send a message">
+                              <p></p>
+                          </div>
+
+                          <div class="chat-bar-icons">
+
+                              <i id="chat-icon1" style="color: crimson;" class="fa fa-fw fa-microphone" onclick="VoiceAPI30()"></i>
+                              <i id="chat-icon" style="color: #333;" class="fa fa-paper-plane" onclick="sendButtonreplacable30()"></i>
+                          </div>
+                          </div>
+                        </div>
+
+                        <div id="inputdiv52" style="display:none">
+                        <div class="chat-bar-input-block">
+
+                          <div id="userInput">
+                              <input id="textInput4" class="input-box" type="text" name="msg" placeholder="Tap 'Enter' to send a message">
+                              <p></p>
+                          </div>
+
+                          <div class="chat-bar-icons">
+
+                              <i id="chat-icon1" style="color: crimson;" class="fa fa-fw fa-microphone" onclick="VoiceAPI4()"></i>
+                              <i id="chat-icon" style="color: #333;" class="fa fa-paper-plane" onclick="sendButtonreplacable4()"></i>
+                          </div>
+                          </div>
+                        </div>
+
+                        <div id="inputdiv53" style="display:none">
+                        <div class="chat-bar-input-block">
+
+                          <div id="userInput">
+                              <input id="textInput5" class="input-box" type="text" name="msg" placeholder="Tap 'Enter' to send a message">
+                              <p></p>
+                          </div>
+
+                          <div class="chat-bar-icons">
+
+                              <i id="chat-icon1" style="color: crimson;" class="fa fa-fw fa-microphone" onclick="VoiceAPI5()"></i>
+                              <i id="chat-icon" style="color: #333;" class="fa fa-paper-plane" onclick="sendButtonreplacable5()"></i>
+                          </div>
+                          </div>
+                        </div>
+                        <div id="inputdiv54" style="display:none">
+                        <div class="chat-bar-input-block">
+
+                          <div id="userInput">
+                              <input id="textInput6" class="input-box" type="text" name="msg" placeholder="Tap 'Enter' to send a message">
+                              <p></p>
+                          </div>
+
+                          <div class="chat-bar-icons">
+
+                              <i id="chat-icon1" style="color: crimson;" class="fa fa-fw fa-microphone" onclick="VoiceAPI6()"></i>
+                              <i id="chat-icon" style="color: #333;" class="fa fa-paper-plane" onclick="sendButtonreplacable6()"></i>
+                          </div>
+                          </div>
+                        </div>
+                        <div id="inputdiv500" style="display:none">
+                        <div class="chat-bar-input-block">
+
+                          <div id="userInput">
+                              <input id="textInput7" class="input-box" type="text" name="msg" placeholder="Tap 'Enter' to send a message">
+                              <p></p>
+                          </div>
+
+                          <div class="chat-bar-icons">
+
+                              <i id="chat-icon1" style="color: crimson;" class="fa fa-fw fa-microphone" onclick="VoiceAPI7()"></i>
+                              <i id="chat-icon" style="color: #333;" class="fa fa-paper-plane" onclick="sendButtonreplacable7()"></i>
+                          </div>
+                          </div>
+                        </div>
+                        <div id="inputdiv501" style="display:none">
+                        <div class="chat-bar-input-block">
+
+                          <div id="userInput">
+                              <input id="textInput8" class="input-box" type="text" name="msg" placeholder="Tap 'Enter' to send a message">
+                              <p></p>
+                          </div>
+
+                          <div class="chat-bar-icons">
+
+                              <i id="chat-icon1" style="color: crimson;" class="fa fa-fw fa-microphone" onclick="VoiceAPI8()"></i>
+                              <i id="chat-icon" style="color: #333;" class="fa fa-paper-plane" onclick="sendButtonreplacable8()"></i>
+                          </div>
+                          </div>
+                        </div>
+
+                        <div id="inputdiv502" style="display:none">
+                        <div class="chat-bar-input-block">
+
+                          <div id="userInput">
+                              <input id="textInput9" class="input-box" type="text" name="msg" placeholder="Tap 'Enter' to send a message">
+                              <p></p>
+                          </div>
+
+                          <div class="chat-bar-icons">
+
+                              <i id="chat-icon1" style="color: crimson;" class="fa fa-fw fa-microphone" onclick="VoiceAPI9()"></i>
+                              <i id="chat-icon" style="color: #333;" class="fa fa-paper-plane" onclick="sendButtonreplacable9()"></i>
+                          </div>
+                          </div>
+                        </div>
+
+
+                        <div id="inputdiv6" style="display:none">
+                          <div class="chat-bar-input-block">
+                            <div id="userInput">
+                                <button class="Button" type="submit" onclick="sendButton2()">
+                                    <span class="Button-inner">
+                                        Submit
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                      </div>
+                      <div id="inputdiv60" style="display:none">
+                        <div class="chat-bar-input-block">
+                          <div id="userInput">
+                              <button class="Button" type="submit" onclick="sendButton20()">
+                                  <span class="Button-inner">
+                                      Submit
+                                  </span>
+                              </button>
+                          </div>
+                      </div>
+                    </div>
+                    <div id="inputdiv69" style="display:none">
+                      <div class="chat-bar-input-block">
+                        <div id="userInput">
+                            <button class="Button" type="submit" onclick="sendButton209()">
+                                <span class="Button-inner">
+                                    Submit
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                  </div>
+
+                    <div id="inputdiv61" style="display:none">
+                      <div class="chat-bar-input-block">
+                        <div id="userInput">
+                            <button class="Button" type="submit" onclick="sendButton201()">
+                                <span class="Button-inner">
+                                    Submit
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                  </div>
+
+                      <div id="inputdiv62" style="display:none">
+                        <div class="chat-bar-input-block">
+                          <div id="userInput">
+                              <button class="Button" type="submit" onclick="sendButton22()">
+                                  <span class="Button-inner">
+                                      Submit
+                                  </span>
+                              </button>
+                          </div>
+                      </div>
+                    </div>
+                    <div id="inputdiv209" style="display:none">
+                      <div class="chat-bar-input-block">
+                        <div id="userInput">
+                            <button class="Button" type="submit" onclick="sendButton210()">
+                                <span class="Button-inner">
+                                    Submit
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                  </div>
+
+                    <div id="inputdiv20" style="display:none">
+                      <div class="chat-bar-input-block">
+                        <div id="userInput">
+                            <h3>Done!</h3>
+                        </div>
+                    </div>
+                  </div>
+
+                      <div id="inputdiv7" style="display:none">
+                        <div class="chat-bar-input-block">
+                          <div id="userInput">
+                              <button class="Button" type="submit" onclick="sendButton2()">
+                                  <span class="Button-inner">
+                                      Submit
+                                  </span>
+                              </button>
+                          </div>
+                      </div>
+                    </div>
+                    <div id="inputdiv72" style="display:none">
+                      <div class="chat-bar-input-block">
+                        <div id="userInput">
+                            <button class="Button" type="submit" onclick="sendButton23()">
+                                <span class="Button-inner">
+                                    Submit
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                  </div>
+                  <div id="inputdiv720" style="display:none">
+                    <div class="chat-bar-input-block">
+                      <div id="userInput">
+                          <button class="Button" type="submit" onclick="sendButton230()">
+                              <span class="Button-inner">
+                                  Submit
+                              </span>
+                          </button>
+                      </div>
+                  </div>
+                </div>
+                <div id="inputdiv7200" style="display:none">
+                  <div class="chat-bar-input-block">
+                    <div id="userInput">
+                        <button class="Button" type="submit" onclick="sendButton2300()">
+                            <span class="Button-inner">
+                                Submit
+                            </span>
+                        </button>
+                    </div>
+                </div>
+              </div>
+                  <div id="inputdiv721" style="display:none">
+                    <div class="chat-bar-input-block">
+                      <div id="userInput">
+                          <button class="Button" type="submit" onclick="sendButton231()">
+                              <span class="Button-inner">
+                                  Submit
+                              </span>
+                          </button>
+                      </div>
+                  </div>
+                </div>
+                  <div id="inputdiv73" style="display:none">
+                    <div class="chat-bar-input-block">
+                      <div id="userInput">
+                          <button class="Button" type="submit" onclick="sendButton24()">
+                              <span class="Button-inner">
+                                  Submit
+                              </span>
+                          </button>
+                      </div>
+                  </div>
+                </div>
+                <div id="inputdiv74" style="display:none">
+                  <div class="chat-bar-input-block">
+                    <div id="userInput">
+                        <button class="Button" type="submit" onclick="sendButton25()">
+                            <span class="Button-inner">
+                                Submit
+                            </span>
+                        </button>
+                    </div>
+                </div>
+              </div>
+              <div id="inputdiv75" style="display:none">
+                <div class="chat-bar-input-block">
+                  <div id="userInput">
+                      <button class="Button" type="submit" onclick="sendButton26()">
+                          <span class="Button-inner">
+                              Submit
+                          </span>
+                      </button>
+                  </div>
+              </div>
+            </div>
+            <div id="inputdiv750" style="display:none">
+              <div class="chat-bar-input-block">
+                <div id="userInput">
+                    <button class="Button" type="submit" onclick="sendButton260()">
+                        <span class="Button-inner">
+                            Submit
+                        </span>
+                    </button>
+                </div>
+            </div>
+          </div>
+            <div id="inputdiv76" style="display:none">
+              <div class="chat-bar-input-block">
+                <div id="userInput">
+                    <button class="Button" type="submit" onclick="sendButton27()">
+                        <span class="Button-inner">
+                            Submit
+                        </span>
+                    </button>
+                </div>
+            </div>
+          </div>
+          <div id="inputdiv77" style="display:none">
+            <div class="chat-bar-input-block">
+              <div id="userInput">
+                  <button class="Button" type="submit" onclick="sendButton28()">
+                      <span class="Button-inner">
+                          Submit
+                      </span>
+                  </button>
+              </div>
+          </div>
+        </div>
+        <div id="inputdiv78" style="display:none">
+          <div class="chat-bar-input-block">
+            <div id="userInput">
+                <button class="Button" type="submit" onclick="sendButton29()">
+                    <span class="Button-inner">
+                        Submit
+                    </span>
+                </button>
+            </div>
+        </div>
+      </div>
+      <div id="period" style="display:none">
+        <div class="chat-bar-input-block">
+          <div id="userInput">
+              <button class="Button" type="submit" onclick="getperiod()">
+                  <span class="Button-inner">
+                      Next
+                  </span>
+              </button>
+          </div>
+      </div>
+    </div>
+
+      <div id="final" style="display:none">
+        <div class="chat-bar-input-block">
+          <div id="userInput">
+              <button class="Button" type="submit" onclick="getdiagnosis()" href="output">
+                  <span class="Button-inner">
+                      Get Diagnosis
+                  </span>
+              </button>
+          </div>
+      </div>
+    </div>
+
+                          <div id="chat-bar-bottom">
+                              <p></p>
+                          </div>
+
+                      </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+  <script src="{% static 'vendors/popper/popper.min.js' %}"></script>
+  <script src="{% static 'vendors/bootstrap/bootstrap.min.js' %}"></script>
+  <script src="{% static 'vendors/anchorjs/anchor.min.js' %}"></script>
+  <script src="{% static 'vendors/is/is.min.js' %}"></script>
+  <script src="{% static 'vendors/fontawesome/all.min.js' %}"></script>
+  <script src="{% static 'vendors/lodash/lodash.min.js' %}"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/gsap.min.js"></script>
+  <script src="{% static 'vendors/imagesloaded/imagesloaded.pkgd.js' %}"></script>
+  <script src="{% static 'vendors/gsap/customEase.js' %}"></script>
+  <script src="{% static 'vendors/gsap/scrollToPlugin.js' %}"></script>
+  <!--script(src=`${CWD}vendors/gsap/drawSVGPlugin.js`)-->
+  <script src="{% static 'assets/js/theme.js' %}"></script>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="{% static 'scripts/responses.js' %}"></script>
+<script src="{% static 'scripts/chat.js' %}"></script>
+<script src="{% static 'scripts/pdf.js' %}"></script>
+
+<script type = "text/javascript">
+
+
+</script>
+<script>
+  const phoneInputField = document.querySelector("#phone");
+  const phoneInput = window.intlTelInput(phoneInputField, {
+    utilsScript:
+      "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+  });
+  const info = document.querySelector(".alert-info");
+
+ function process(event) {
+  //event.preventDefault();
+
+  const phoneNumber = phoneInput.getNumber();
+
+  //info.style.display = "";
+  //info.innerHTML = `Phone number in E.164 format: <strong>${phoneNumber}</strong>`;
+  console.log(phoneNumber)
+ }
+</script>
+<style>
+
+</style>
+</html>

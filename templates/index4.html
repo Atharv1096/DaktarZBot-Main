@@ -1,0 +1,591 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Bot</title>
+
+    <link rel="stylesheet" href="{% static 'css/chat.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+</head>
+
+<body>
+    <!-- CHAT BAR BLOCK -->
+    <div class="chat-bar-collapsible">
+        <button id="chat-button" type="button" class="collapsible">Chat with us!
+            <i id="chat-icon" style="color: #fff;" class="fa fa-fw fa-comments-o"></i>
+        </button>
+
+        <div class="content">
+            <div class="full-chat-block">
+                <!-- Message Container -->
+                <div class="outer-container">
+
+                    <div id="div1" style="display:block">
+                      <div class="chat-container">
+                        <form action="#" method="post">
+                            {% csrf_token %}
+                          <p>
+                                <h3 style="text-align:left; margin-left:15px;" > Fill your details </h3>
+                                <input type="text" id="ip1" class="inp" placeholder="Name" required/>
+                          </p>
+                          <p>
+                                <!--<div class="container">
+                                <form id="login" onsubmit="process(event)">
+                                  <p>Enter your phone number:</p>
+                                  <input id="phone" type="tel" name="phone" />
+                                  <input type="submit" class="btn" value="Verify" />
+                                </form>
+                                <div class="alert alert-info" style="display: none;"></div>
+                              </div>-->
+                                <input type="number" id="ip2" class="inp" placeholder="Phone Number " required/>
+                          </p>
+                          <p>
+                            <input type="number" id="ip3" class="inp" placeholder="Age " required/>
+                          </p>
+                          <p>
+                            <h4 style="text-align:left; margin-left:15px;" > Gender </h4>
+                          </p>
+                          <p>
+
+                            <label class="radio" for="test1">
+                            <input type="radio" name="gender" id="test1" value="male"  checked>
+                            <span>
+
+                            </span>
+                            Male
+                            </label>
+
+                            <label class="radio" for="test2">
+                            <input type="radio" name="gender" value="female" id="test2" >
+                            <span>
+
+                            </span>
+                            Female
+                            </label>
+
+                            <label class="radio" for="test3">
+                            <input type="radio" name="gender" value="other" id="test3" >
+                            <span>
+
+                            </span>
+                            Other
+                            </label>
+                          </p>
+                          <br>
+                          <div class="chat-bar-input-block">
+                          <button class="Button" type="button"  onclick="replace('div1','div2')">
+                            <span class="Button-inner" >
+                            Submit
+                            </span>
+                          </button>
+                          </div>
+                          <!--<button type="submit" onclick = "replace()">change content</button>-->
+                          </form>
+                      </div>
+                    </div>
+                    <div id="div2" style="display:none">
+                      <div class="chat-container">
+                          <!-- Messages -->
+                          <div id="chatbox">
+                              <h5 id="chat-timestamp"></h5>
+                              <p id="botStarterMessage" class="botText"><span>Loading...</span></p>
+                          </div>
+
+                          <!-- User input box -->
+                          <div id="inputdiv1">
+                          <div class="chat-bar-input-block">
+
+                            <div id="userInput">
+                                <input id="textInput" class="input-box" type="text" name="msg" placeholder="Tap 'Enter' to send a message">
+                                <p></p>
+                            </div>
+
+                            <div class="chat-bar-icons">
+
+                                <i id="chat-icon1" style="color: crimson;" class="fa fa-fw fa-microphone" onclick="VoiceAPI()"></i>
+                                <i id="chat-icon" style="color: #333;" class="fa fa-fw fa-send" onclick="sendButtonreplacable()"></i>
+                            </div>
+                            </div>
+                          </div>
+
+
+
+                            <div id="inputdiv2" style="display:none">
+                              <div class="chat-bar-input-block">
+                                <div id="userInput">
+                                    <button class="Button" type="submit" onclick="sendButton()">
+                                        <span class="Button-inner">
+                                            Submit
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
+                          </div>
+
+                          <div id="inputdiv3" style="display:none">
+                            <div class="chat-bar-input-block">
+                              <div id="userInput">
+                                  <button class="Button" type="submit" onclick="sendButton2()">
+                                      <span class="Button-inner">
+                                          Submit
+                                      </span>
+                                  </button>
+                              </div>
+                          </div>
+                        </div>
+
+                        <div id="inputdiv8" style="display:none">
+                          <div class="chat-bar-input-block">
+                            <div id="userInput">
+                                <button class="Button" type="submit" onclick="sendButton3()">
+                                    <span class="Button-inner">
+                                        Submit
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                      </div>
+
+                      <div id="inputdiv9" style="display:none">
+                        <div class="chat-bar-input-block">
+                          <div id="userInput">
+                              <button class="Button" type="submit" onclick="sendButton4()">
+                                  <span class="Button-inner">
+                                      Submit
+                                  </span>
+                              </button>
+                          </div>
+                      </div>
+                    </div>
+
+                        <div id="inputdiv4" style="display:none">
+                        <div class="chat-bar-input-block">
+
+                          <div id="userInput">
+                              <input id="textInput2" class="input-box" type="text" name="msg" placeholder="Tap 'Enter' to send a message">
+                              <p></p>
+                          </div>
+
+                          <div class="chat-bar-icons">
+
+                              <i id="chat-icon1" style="color: crimson;" class="fa fa-fw fa-microphone" onclick="VoiceAPI2()"></i>
+                              <i id="chat-icon" style="color: #333;" class="fa fa-fw fa-send" onclick="sendButtonreplacable2()"></i>
+                          </div>
+                          </div>
+                        </div>
+
+                        <div id="inputdiv5" style="display:none">
+                        <div class="chat-bar-input-block">
+
+                          <div id="userInput">
+                              <input id="textInput3" class="input-box" type="text" name="msg" placeholder="Tap 'Enter' to send a message">
+                              <p></p>
+                          </div>
+
+                          <div class="chat-bar-icons">
+
+                              <i id="chat-icon1" style="color: crimson;" class="fa fa-fw fa-microphone" onclick="VoiceAPI3()"></i>
+                              <i id="chat-icon" style="color: #333;" class="fa fa-fw fa-send" onclick="sendButtonreplacable3()"></i>
+                          </div>
+                          </div>
+                        </div>
+
+                        <div id="inputdiv50" style="display:none">
+                        <div class="chat-bar-input-block">
+
+                          <div id="userInput">
+                              <input id="textInput30" class="input-box" type="text" name="msg" placeholder="Tap 'Enter' to send a message">
+                              <p></p>
+                          </div>
+
+                          <div class="chat-bar-icons">
+
+                              <i id="chat-icon1" style="color: crimson;" class="fa fa-fw fa-microphone" onclick="VoiceAPI30()"></i>
+                              <i id="chat-icon" style="color: #333;" class="fa fa-fw fa-send" onclick="sendButtonreplacable30()"></i>
+                          </div>
+                          </div>
+                        </div>
+
+                        <div id="inputdiv52" style="display:none">
+                        <div class="chat-bar-input-block">
+
+                          <div id="userInput">
+                              <input id="textInput4" class="input-box" type="text" name="msg" placeholder="Tap 'Enter' to send a message">
+                              <p></p>
+                          </div>
+
+                          <div class="chat-bar-icons">
+
+                              <i id="chat-icon1" style="color: crimson;" class="fa fa-fw fa-microphone" onclick="VoiceAPI4()"></i>
+                              <i id="chat-icon" style="color: #333;" class="fa fa-fw fa-send" onclick="sendButtonreplacable4()"></i>
+                          </div>
+                          </div>
+                        </div>
+
+                        <div id="inputdiv53" style="display:none">
+                        <div class="chat-bar-input-block">
+
+                          <div id="userInput">
+                              <input id="textInput5" class="input-box" type="text" name="msg" placeholder="Tap 'Enter' to send a message">
+                              <p></p>
+                          </div>
+
+                          <div class="chat-bar-icons">
+
+                              <i id="chat-icon1" style="color: crimson;" class="fa fa-fw fa-microphone" onclick="VoiceAPI5()"></i>
+                              <i id="chat-icon" style="color: #333;" class="fa fa-fw fa-send" onclick="sendButtonreplacable5()"></i>
+                          </div>
+                          </div>
+                        </div>
+                        <div id="inputdiv54" style="display:none">
+                        <div class="chat-bar-input-block">
+
+                          <div id="userInput">
+                              <input id="textInput6" class="input-box" type="text" name="msg" placeholder="Tap 'Enter' to send a message">
+                              <p></p>
+                          </div>
+
+                          <div class="chat-bar-icons">
+
+                              <i id="chat-icon1" style="color: crimson;" class="fa fa-fw fa-microphone" onclick="VoiceAPI6()"></i>
+                              <i id="chat-icon" style="color: #333;" class="fa fa-fw fa-send" onclick="sendButtonreplacable6()"></i>
+                          </div>
+                          </div>
+                        </div>
+                        <div id="inputdiv500" style="display:none">
+                        <div class="chat-bar-input-block">
+
+                          <div id="userInput">
+                              <input id="textInput7" class="input-box" type="text" name="msg" placeholder="Tap 'Enter' to send a message">
+                              <p></p>
+                          </div>
+
+                          <div class="chat-bar-icons">
+
+                              <i id="chat-icon1" style="color: crimson;" class="fa fa-fw fa-microphone" onclick="VoiceAPI7()"></i>
+                              <i id="chat-icon" style="color: #333;" class="fa fa-fw fa-send" onclick="sendButtonreplacable7()"></i>
+                          </div>
+                          </div>
+                        </div>
+                        <div id="inputdiv501" style="display:none">
+                        <div class="chat-bar-input-block">
+
+                          <div id="userInput">
+                              <input id="textInput8" class="input-box" type="text" name="msg" placeholder="Tap 'Enter' to send a message">
+                              <p></p>
+                          </div>
+
+                          <div class="chat-bar-icons">
+
+                              <i id="chat-icon1" style="color: crimson;" class="fa fa-fw fa-microphone" onclick="VoiceAPI8()"></i>
+                              <i id="chat-icon" style="color: #333;" class="fa fa-fw fa-send" onclick="sendButtonreplacable8()"></i>
+                          </div>
+                          </div>
+                        </div>
+
+                        <div id="inputdiv502" style="display:none">
+                        <div class="chat-bar-input-block">
+
+                          <div id="userInput">
+                              <input id="textInput9" class="input-box" type="text" name="msg" placeholder="Tap 'Enter' to send a message">
+                              <p></p>
+                          </div>
+
+                          <div class="chat-bar-icons">
+
+                              <i id="chat-icon1" style="color: crimson;" class="fa fa-fw fa-microphone" onclick="VoiceAPI9()"></i>
+                              <i id="chat-icon" style="color: #333;" class="fa fa-fw fa-send" onclick="sendButtonreplacable9()"></i>
+                          </div>
+                          </div>
+                        </div>
+
+
+                        <div id="inputdiv6" style="display:none">
+                          <div class="chat-bar-input-block">
+                            <div id="userInput">
+                                <button class="Button" type="submit" onclick="sendButton2()">
+                                    <span class="Button-inner">
+                                        Submit
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                      </div>
+                      <div id="inputdiv60" style="display:none">
+                        <div class="chat-bar-input-block">
+                          <div id="userInput">
+                              <button class="Button" type="submit" onclick="sendButton20()">
+                                  <span class="Button-inner">
+                                      Submit
+                                  </span>
+                              </button>
+                          </div>
+                      </div>
+                    </div>
+                    <div id="inputdiv69" style="display:none">
+                      <div class="chat-bar-input-block">
+                        <div id="userInput">
+                            <button class="Button" type="submit" onclick="sendButton209()">
+                                <span class="Button-inner">
+                                    Submit
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                  </div>
+
+                    <div id="inputdiv61" style="display:none">
+                      <div class="chat-bar-input-block">
+                        <div id="userInput">
+                            <button class="Button" type="submit" onclick="sendButton201()">
+                                <span class="Button-inner">
+                                    Submit
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                  </div>
+
+                      <div id="inputdiv62" style="display:none">
+                        <div class="chat-bar-input-block">
+                          <div id="userInput">
+                              <button class="Button" type="submit" onclick="sendButton22()">
+                                  <span class="Button-inner">
+                                      Submit
+                                  </span>
+                              </button>
+                          </div>
+                      </div>
+                    </div>
+                    <div id="inputdiv209" style="display:none">
+                      <div class="chat-bar-input-block">
+                        <div id="userInput">
+                            <button class="Button" type="submit" onclick="sendButton210()">
+                                <span class="Button-inner">
+                                    Submit
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                  </div>
+
+                    <div id="inputdiv20" style="display:none">
+                      <div class="chat-bar-input-block">
+                        <div id="userInput">
+                            <h3>Done!</h3>
+                        </div>
+                    </div>
+                  </div>
+
+                      <div id="inputdiv7" style="display:none">
+                        <div class="chat-bar-input-block">
+                          <div id="userInput">
+                              <button class="Button" type="submit" onclick="sendButton2()">
+                                  <span class="Button-inner">
+                                      Submit
+                                  </span>
+                              </button>
+                          </div>
+                      </div>
+                    </div>
+                    <div id="inputdiv72" style="display:none">
+                      <div class="chat-bar-input-block">
+                        <div id="userInput">
+                            <button class="Button" type="submit" onclick="sendButton23()">
+                                <span class="Button-inner">
+                                    Submit
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                  </div>
+                  <div id="inputdiv720" style="display:none">
+                    <div class="chat-bar-input-block">
+                      <div id="userInput">
+                          <button class="Button" type="submit" onclick="sendButton230()">
+                              <span class="Button-inner">
+                                  Submit
+                              </span>
+                          </button>
+                      </div>
+                  </div>
+                </div>
+                <div id="inputdiv7200" style="display:none">
+                  <div class="chat-bar-input-block">
+                    <div id="userInput">
+                        <button class="Button" type="submit" onclick="sendButton2300()">
+                            <span class="Button-inner">
+                                Submit
+                            </span>
+                        </button>
+                    </div>
+                </div>
+              </div>
+                  <div id="inputdiv721" style="display:none">
+                    <div class="chat-bar-input-block">
+                      <div id="userInput">
+                          <button class="Button" type="submit" onclick="sendButton231()">
+                              <span class="Button-inner">
+                                  Submit
+                              </span>
+                          </button>
+                      </div>
+                  </div>
+                </div>
+                  <div id="inputdiv73" style="display:none">
+                    <div class="chat-bar-input-block">
+                      <div id="userInput">
+                          <button class="Button" type="submit" onclick="sendButton24()">
+                              <span class="Button-inner">
+                                  Submit
+                              </span>
+                          </button>
+                      </div>
+                  </div>
+                </div>
+                <div id="inputdiv74" style="display:none">
+                  <div class="chat-bar-input-block">
+                    <div id="userInput">
+                        <button class="Button" type="submit" onclick="sendButton25()">
+                            <span class="Button-inner">
+                                Submit
+                            </span>
+                        </button>
+                    </div>
+                </div>
+              </div>
+              <div id="inputdiv75" style="display:none">
+                <div class="chat-bar-input-block">
+                  <div id="userInput">
+                      <button class="Button" type="submit" onclick="sendButton26()">
+                          <span class="Button-inner">
+                              Submit
+                          </span>
+                      </button>
+                  </div>
+              </div>
+            </div>
+            <div id="inputdiv750" style="display:none">
+              <div class="chat-bar-input-block">
+                <div id="userInput">
+                    <button class="Button" type="submit" onclick="sendButton260()">
+                        <span class="Button-inner">
+                            Submit
+                        </span>
+                    </button>
+                </div>
+            </div>
+          </div>
+            <div id="inputdiv76" style="display:none">
+              <div class="chat-bar-input-block">
+                <div id="userInput">
+                    <button class="Button" type="submit" onclick="sendButton27()">
+                        <span class="Button-inner">
+                            Submit
+                        </span>
+                    </button>
+                </div>
+            </div>
+          </div>
+          <div id="inputdiv77" style="display:none">
+            <div class="chat-bar-input-block">
+              <div id="userInput">
+                  <button class="Button" type="submit" onclick="sendButton28()">
+                      <span class="Button-inner">
+                          Submit
+                      </span>
+                  </button>
+              </div>
+          </div>
+        </div>
+        <div id="inputdiv78" style="display:none">
+          <div class="chat-bar-input-block">
+            <div id="userInput">
+                <button class="Button" type="submit" onclick="sendButton29()">
+                    <span class="Button-inner">
+                        Submit
+                    </span>
+                </button>
+            </div>
+        </div>
+      </div>
+      <div id="period" style="display:none">
+        <div class="chat-bar-input-block">
+          <div id="userInput">
+              <button class="Button" type="submit" onclick="getperiod()">
+                  <span class="Button-inner">
+                      Submit1
+                  </span>
+              </button>
+          </div>
+      </div>
+    </div>
+
+      <div id="final" style="display:none">
+        <div class="chat-bar-input-block">
+          <div id="userInput">
+              <button class="Button" type="submit" onclick="getdiagnosis()">
+                  <span class="Button-inner">
+                      Get Diagnosis
+                  </span>
+              </button>
+          </div>
+      </div>
+    </div>
+
+                          <div id="chat-bar-bottom">
+                              <p></p>
+                          </div>
+
+                      </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="{% static 'scripts/responses.js' %}"></script>
+<script src="{% static 'scripts/chat.js' %}"></script>
+
+<script type = "text/javascript">
+
+
+</script>
+<script>
+  const phoneInputField = document.querySelector("#phone");
+  const phoneInput = window.intlTelInput(phoneInputField, {
+    utilsScript:
+      "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+  });
+  const info = document.querySelector(".alert-info");
+
+ function process(event) {
+  //event.preventDefault();
+
+  const phoneNumber = phoneInput.getNumber();
+
+  //info.style.display = "";
+  //info.innerHTML = `Phone number in E.164 format: <strong>${phoneNumber}</strong>`;
+  console.log(phoneNumber)
+ }
+</script>
+<style>
+
+</style>
+</html>
